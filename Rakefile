@@ -2,7 +2,7 @@
 # that can be run from the commandline and
 # declare dependencies between tasks.
 
-require "./shortly"
+require "./explore"
 require 'rspec/core/rake_task'
 require "sinatra/activerecord/rake"
 
