@@ -2,11 +2,34 @@ var galleryExploreApp = angular.module('galleryExploreApp', [
   'ngRoute'
 ]);
 
+galleryExploreApp.config(['$routeProvider',
+  function($routeProvider) {
+  $routeProvider.
+    when('/', {
+      templateUrl: 'client/partials/gallery.html',
+      controller: 'ImageGalleryController'
+    }).otherwise({
+      redirectTo: '/'
+    });
+}]);
 
 
-// var shortlyApp = angular.module('shortlyApp', [
-//   'ngRoute', 'ngCookies'
-// ]);
+galleryExploreApp.controller('ImageGalleryController', function($scope) {
+  // in the meantime, use some external photos
+  $scope.images = [
+    {src: 'http://farm9.staticflickr.com/8042/7918423710_e6dd168d7c_b.jpg', desc: 'Image 01'},
+    {src: 'http://farm9.staticflickr.com/8449/7918424278_4835c85e7a_b.jpg', desc: 'Image 02'},
+    {src: 'http://farm9.staticflickr.com/8457/7918424412_bb641455c7_b.jpg', desc: 'Image 03'},
+    {src: 'http://farm9.staticflickr.com/8179/7918424842_c79f7e345c_b.jpg', desc: 'Image 04'},
+    {src: 'http://farm9.staticflickr.com/8315/7918425138_b739f0df53_b.jpg', desc: 'Image 05'},
+    {src: 'http://farm9.staticflickr.com/8461/7918425364_fe6753aa75_b.jpg', desc: 'Image 06'}
+  ];
+
+  // $scope.showPhoto = function(src) {
+  //   return src;
+  // }; 
+
+});
 
 // shortlyApp.config(['$routeProvider',
 //   function($routeProvider, $cookieStore) {
