@@ -28,10 +28,14 @@ h1 {
   cursor: pointer;
   display: inline-block;
   height: 60px;
-  margin: 0 8px;
+  margin: 8 8px;
   position: relative;
   width: 60px;
   overflow: hidden;
+}
+
+.imagelist li img {
+  width:100%;
 }
 
 
