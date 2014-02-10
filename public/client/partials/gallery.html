@@ -1,12 +1,15 @@
-<div>
-	<div class='imagegallery'>
+<div class='container imagegallery' ng-controller='ImageGalleryController'>
+
+	<div>
 		<form>
 			<input type='search' ng-model='query' autofocus/>
 		</form>
 	</div>
+
 	<ul class='imagelist'>
 		<li ng-repeat='image in images | filter:query' class='image'>
 			<img src='{{ image.src }}' />
 		</ul>
 	</ul>
+
 </div>
