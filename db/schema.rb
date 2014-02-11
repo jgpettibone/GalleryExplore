@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140211073843) do
+ActiveRecord::Schema.define(version: 20140211190138) do
 
   create_table "details", force: true do |t|
     t.string "src"
   end
 
   create_table "images", force: true do |t|
+    t.string "src"
+    t.string "collection"
+    t.string "museum"
+    t.string "desc"
+    t.string "culture"
+    t.string "country"
+    t.string "tags"
+  end
+
+  create_table "saveds", force: true do |t|
     t.string "src"
     t.string "collection"
     t.string "museum"

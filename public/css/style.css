@@ -81,6 +81,20 @@ h1 {
   overflow: hidden;
 }
 
+.onetourimg {
+  width:300px;
+  height: auto;
+  overflow: hidden;
+ 
+}
+
+.onetourtable td {
+  vertical-align: top;
+  border-style: solid;
+  border-color: #456347;
+  border-width: 5px;
+}
+
 .detailtable td {
   vertical-align: top;
   border-style: solid;

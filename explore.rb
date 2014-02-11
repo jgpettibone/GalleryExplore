@@ -43,6 +43,9 @@ end
 class Detail < ActiveRecord::Base
 end
 
+class Saved < ActiveRecord::Base
+end
+
 ###########################################################
 # Routes
 ###########################################################
@@ -83,6 +86,19 @@ post '/tags' do
   end
   image.update(tags: newTags)
   image.to_json
+end
+
+post '/saved' do
+  data = JSON.parse request.body.read
+  image = Saved.create data
+  puts image
+end
+
+get '/saved' do
+  images = Saved.all 
+  images.map { |image| 
+    image.as_json
+  }.to_json
 end
 
 get '/create' do

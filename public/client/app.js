@@ -17,7 +17,11 @@ galleryExploreApp.config(['$routeProvider',
       templateUrl: 'client/partials/tours.html',
       controller: 'TourViewController'
     }).
-    when('/create', {
+    when('/onetour', {
+      templateUrl: 'client/partials/onetour.html',
+      controller: 'OneTourViewController'
+    }).
+     when('/create', {
       templateUrl: 'client/partials/tour.html',
       controller: 'TourCreateController'
     }).
@@ -27,11 +31,11 @@ galleryExploreApp.config(['$routeProvider',
 }]);
 
 
-// galleryExploreApp.service('ImageService'), function($scope) {
-
-//   this.tourImages = [];
-
-// };
+// galleryExploreApp.service('ImageService', function() {
+//   return {
+//     saved: []
+//   }
+// });
 
 galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $window, $location) {
 
@@ -56,9 +60,12 @@ galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $
       if ($scope.research[i].src === $scope.image.src) {
         $scope.image.research = $scope.research[i].r;
         break;
-      } 
+      }
+      // else {
+      //   $scope.image.research =[{name:"Research not yet posted", path:nil}];
+      // } 
     }
-    console.log('research = ', $scope.image.research);
+    // console.log('research = ', $scope.image.research);
   });
 
   $scope.showDoc = function(path){
@@ -73,10 +80,22 @@ galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $
       url: '/tags',
       data: {src: src, tags: tag}
     }).then(function(){
-      $scope.save();
+      // $scope.save();
       $scope.tag = "";
-      // $scope.image.tags;
+    // $scope.image.tags;
     });
+  };
+
+  $scope.addImage = function(img) {
+    // console.log('saved ', img);
+    // ImageService.saved.push(img);
+
+    $http({
+      method: 'POST',
+      url: '/saved',
+      data: img
+    });
+
   };
 
   $scope.save = function() {
@@ -86,11 +105,48 @@ galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $
 
 });
 
-galleryExploreApp.controller('TourViewController', function($scope, $location) {
+galleryExploreApp.controller('TourViewController', function($scope, $window, $location) {
 
   $scope.tours = [
     {tourid: 1, tourname: 'AOA Masterpieces - Three In 30', museum:'deyoung'},
     {tourid: 2, tourname: 'Oceania - Three In 30', museum:'deyoung'},
+    {tourid: 3, tourname: 'Female Figures, Female Rituals, Female Artists', museum:'deyoung'}
+  ];
+
+//1 - dogon, yipwon, slit drum, stela
+//2 - female cult hook, string bag, yipwon, slit drum, female house post 
+//3 - female cult hook, female giving birth, mourning costume, bilum, female house post, sowei mask, odundo pot, harp, bowstand
+
+  $scope.tourimage = [
+  {tourid: 2, order:1, src:"../images/l05-1-67.jpg"},
+  {tourid: 2, order:2, src:"../images/2007-44-79.jpg"},
+  {tourid: 2, order:3, src:"../images/2000-172-1.jpg"},
+  {tourid: 2, order:4, src:"../images/2001-62-9.jpg"},
+  {tourid: 2, order:5, src:"../images/l05-1-19.jpg"}
+  ];
+
+  $scope.talkingpts = [
+
+  ];
+
+  $scope.selectTour = function(tour){
+    $window.open('/#/onetour');
+    // console.log('Tour! ', tour);
+    // $scope.save();
+  };
+
+  // $scope.save = function() {
+  //   $location.path('/tourslist');
+  // };
+
+});
+
+
+galleryExploreApp.controller('OneTourViewController', function($scope, $location) {
+
+  $scope.tours = [
+    {tourid: 1, tourname: 'AOA Masterpieces - Three Pieces In 30 Minutes', museum:'deyoung'},
+    {tourid: 2, tourname: 'Oceania - Three Pieces In 30 Minutes', museum:'deyoung'},
     {tourid: 3, tourname: 'Female Figures, Female Rituals, Female Artists', museum:'deyoung'}
   ];
 
@@ -121,7 +177,19 @@ galleryExploreApp.controller('TourViewController', function($scope, $location) {
 
 });
 
-galleryExploreApp.controller('TourCreateController', function($scope) {
+galleryExploreApp.controller('TourCreateController', function($scope, $http) {
+
+  // $scope.tourimages = ImageService.saved;
+  // console.log($scope.tourimages);
+
+  $http({
+    method: 'GET',
+    url: '/saved'
+  }).then(function(obj){
+    $scope.tourimages = obj.data;
+    console.log($scope.tourimages);
+  });
+
 
 });
 
