@@ -49,6 +49,23 @@ get '/' do
   erb :index
 end
 
+get '/images' do
+  images = Image.order("id ASC")
+  images.map { |image| 
+    image.as_json
+  }.to_json
+  # images.each {|image|
+  #   puts image['src']
+  # } 
+end
+
+get '/create' do
+end
+
+get '/details' do 
+end
+
+
 
 
 # get '/links' do
