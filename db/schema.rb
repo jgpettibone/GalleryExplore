@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140211033510) do
+ActiveRecord::Schema.define(version: 20140211073843) do
+
+  create_table "details", force: true do |t|
+    t.string "src"
+  end
 
   create_table "images", force: true do |t|
     t.string "src"

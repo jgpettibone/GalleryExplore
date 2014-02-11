@@ -23,23 +23,14 @@ galleryExploreApp.config(['$routeProvider',
 }]);
 
 
-galleryExploreApp.service('ImageService', function() {
-  return {
-    src: "../images/1980-24-1.jpg",
-  }
-})
-
-galleryExploreApp.controller('ImageDetailsController', function($scope, $http, ImageService) {
-
-  // console.log('ImageService.src', ImageService.src);
+galleryExploreApp.controller('ImageDetailsController', function($scope, $http) {
 
   $http({
-    method: 'POST',
-    url: '/details',
-    data: {src: ImageService.src}
-  }).then(function(obj){
+    method: 'GET',
+    url: '/details'
+  })
+  .then(function(obj){
     $scope.image = obj.data;
-    // console.log(obj.data);
   });
 
   $scope.addTag = function(tag, src) {
@@ -47,22 +38,17 @@ galleryExploreApp.controller('ImageDetailsController', function($scope, $http, I
       method: 'POST',
       url: '/tags',
       data: {src: src, tags: tag}
-    }).then(function(obj){
-      // $scope.image = obj.data;
-      // console.log(obj.data);
     });
   };
 
 
 });
 
-galleryExploreApp.controller('TourCreateController', function($scope, ImageService) {
-
-  $scope.tourimages = ImageService.tourimages;
+galleryExploreApp.controller('TourCreateController', function($scope) {
 
 });
 
-galleryExploreApp.controller('ImageGalleryController', function($scope, $http, $location, ImageService) {
+galleryExploreApp.controller('ImageGalleryController', function($scope, $http, $location) {
   $http({
     method: 'GET',
     url: '/images'
@@ -72,7 +58,11 @@ galleryExploreApp.controller('ImageGalleryController', function($scope, $http, $
 
 
   $scope.showDetails = function(src) {
-    ImageService.src = src;
+    $http({
+      method: 'POST',
+      url: '/detailimage',
+      data: {src: src}
+    });
     $scope.save();
   };
 

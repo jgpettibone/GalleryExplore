@@ -40,6 +40,8 @@ ActiveRecord::Base.include_root_in_json = false
 class Image < ActiveRecord::Base
 end
 
+class Detail < ActiveRecord::Base
+end
 
 ###########################################################
 # Routes
@@ -56,11 +58,20 @@ get '/images' do
   }.to_json
 end
 
-post '/details' do 
-  data = JSON.parse request.body.read
-  # puts data
-  image = Image.find_by_src data['src']  
+get '/details' do 
+  # data = JSON.parse request.body.read
+  thisimage = Detail.find_by_id(1)
+  image = Image.find_by_src thisimage.src
+  puts image.to_json
   image.to_json
+end
+
+post '/detailimage' do
+  data = JSON.parse request.body.read
+  detail = Detail.find_by_id(1);
+  detail.update(src: data['src'])
+  # puts detail.to_json
+  detail.to_json
 end
 
 post '/tags' do
