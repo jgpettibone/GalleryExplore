@@ -59,7 +59,6 @@ get '/images' do
 end
 
 get '/details' do 
-  # data = JSON.parse request.body.read
   thisimage = Detail.find_by_id(1)
   image = Image.find_by_src thisimage.src
   puts image.to_json
@@ -70,15 +69,20 @@ post '/detailimage' do
   data = JSON.parse request.body.read
   detail = Detail.find_by_id(1);
   detail.update(src: data['src'])
-  # puts detail.to_json
   detail.to_json
 end
 
 post '/tags' do
   data = JSON.parse request.body.read
   image = Image.find_by_src data['src']
-  newTags = "#{image.tags},#{data['tags']}"
+  puts image.tags
+  if image.tags.empty? then
+    newTags = "#{data['tags']}"
+  else
+    newTags = "#{image.tags},#{data['tags']}"
+  end
   image.update(tags: newTags)
+  image.to_json
 end
 
 get '/create' do
@@ -92,72 +96,7 @@ get '/details' do
 end
 
 
-
-
-# get '/links' do
-#     links = Link.order("created_at DESC")
-#     links.map { |link|
-#         link.as_json.merge(base_url: request.base_url)
-#     }.to_json
-# end
-
-# post '/links' do
-#     data = JSON.parse request.body.read
-#     uri = URI(data['url'])
-#     raise Sinatra::NotFound unless uri.absolute?
-#     link = Link.find_by_url(uri.to_s) ||
-#            Link.create( url: uri.to_s, title: get_url_title(uri) )
-#     link.as_json.merge(base_url: request.base_url).to_json
-# end
-
-# get '/:url' do
-#     link = Link.find_by_code params[:url]
-#     raise Sinatra::NotFound if link.nil?
-#     link.clicks.create!
-#     redirect link.url
-# end
-
-# post '/login' do
-#   data = JSON.parse request.body.read
-#   user = User.find_by_username data['username']
-#   if user.nil? or !user.authenticate data['password']
-#     {token: ''}.to_json
-#   else
-#     {token: user.token}.to_json
-#   end
-# end
-
-# post '/register' do
-#   data = JSON.parse request.body.read
-#   user = User.create( username: data['username'],
-#                       password: data['password'],
-#                       password_confirmation: data['passwordConfirmation'])
-#   if user.errors.any?
-#     {token: ''}.to_json
-#   else
-#     {token: user.token}.to_json
-#   end
-# end
-
 ###########################################################
 # Utility
 ###########################################################
 
-# def read_url_head url
-#     head = ""
-#     url.open do |u|
-#         begin
-#             line = u.gets
-#             next  if line.nil?
-#             head += line
-#             break if line =~ /<\/head>/
-#         end until u.eof?
-#     end
-#     head + "</html>"
-# end
-
-# def get_url_title url
-#     # Nokogiri::HTML.parse( read_url_head url ).title
-#     result = read_url_head(url).match(/<title>(.*)<\/title>/)
-#     result.nil? ? "" : result[1]
-# end

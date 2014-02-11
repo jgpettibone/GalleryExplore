@@ -23,7 +23,7 @@ galleryExploreApp.config(['$routeProvider',
 }]);
 
 
-galleryExploreApp.controller('ImageDetailsController', function($scope, $http) {
+galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $location) {
 
   $http({
     method: 'GET',
@@ -38,9 +38,14 @@ galleryExploreApp.controller('ImageDetailsController', function($scope, $http) {
       method: 'POST',
       url: '/tags',
       data: {src: src, tags: tag}
+    }).then(function(){
+      $scope.save();
     });
   };
 
+  $scope.save = function() {
+    $location.path('/details');
+  }
 
 });
 
