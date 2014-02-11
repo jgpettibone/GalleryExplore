@@ -1,33 +1,21 @@
 <div class='container tourcreate' ng-controller='TourCreateController'>
 
-<!-- 	<div>
-		<form>
-			<input type='search' ng-model='query' autofocus/>
-		</form>
+	<div class='tourcreateimages'>
+	 <h3>Create Your Tour</h3>
+	 		Tour Name <input type="text"  ng-model="tourname" name="tournameform"/>
+	 		<button ng-click="submitName(tourname)">Submit</button><br>
+	 		{{ tourname }}<br><br>
+
+	 		<div ng-repeat='image in tourimages' class='tourimagelist'>
+	 			<img ng-src='{{ image.src }}'/>
+
+	 			<form>
+	 				<input type="text" ng-model="notes"/>
+			 		<button ng-click="submitNotes(notes)">Submit</button><br>	 				
+	 			</form>
+
+	 		</div>
+
 	</div>
- -->
-
-
-<div class='tourcreateimages'>
- <h3>Pieces Saved</h3>
-	<ul class='tourimagelist'>
-		<li ng-repeat='image in tourimages' class='image'>
-			<img ng-src='{{ image.src }}' ng-click='showDetails(image.src)'/>
-			<!-- <img ng-src='{{ image.src }}' ng-click='showDetails($index)'/> -->
-			<!-- <button ng-click="remove(image.src)">Remove</button> -->
-		</ul>
-	</ul>
 
 </div>
-
-<div class='tourcreateform'>
-	<h3>Create Your Tour Here</h3>
-
-
-</div>
-
-</div>
-
-<!-- <div class='container tourcreateform'>
-
-</div> -->
