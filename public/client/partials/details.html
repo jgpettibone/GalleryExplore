@@ -3,7 +3,8 @@
 <div class='container imagedetails' ng-controller='ImageDetailsController'>
 
 <form name="includeImage">
-	Include in Create New Tour: <input type="checkbox" ng-model='image.checked'>
+	Include in Create New Tour: 
+	<input type="checkbox" checklist-model='image.checked'>
 
 </form>
 
@@ -26,11 +27,19 @@
 
 			<p><b>Included in the Following Tours:</b>
 				<ul>
+					<!-- <li>{{ research }}</li> -->
 				</ul>
 			</p>
 		</td>
 		<td>
 			Research Papers:
+				<ul>
+					<li ng-repeat="r in image.research" ng-click="showDoc(r.path)">
+						<!-- <a ng-href='{{ r.path }}'> -->
+							{{ r.name }}
+						<!-- </a> -->
+					</li>
+				</ul>
 		</td>
 	</tr>
 </div>
