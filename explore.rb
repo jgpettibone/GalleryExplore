@@ -61,7 +61,7 @@ end
 get '/details' do 
   thisimage = Detail.find_by_id(1)
   image = Image.find_by_src thisimage.src
-  puts image.to_json
+  # puts image.to_json
   image.to_json
 end
 

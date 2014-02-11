@@ -83,13 +83,42 @@ h1 {
 
 .detailtable td {
   vertical-align: top;
+  border-style: solid;
+  border-color: #456347;
+  border-width: 5px;
+}
+
+.tourview {
+/*  margin: 3px 0;
+  min-height: 60px;
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #456347;
+  left: px;*/
+  margin: auto;
+  /*margin-right: auto;*/
+
+}
+
+.tourtitle {
+/*  padding-left: 10px;
+  font-size: 2em;
+  color: #456347;
+*/
+  text-align: center;
+}
+
+
+.tourmuseum {
+  float:right;
 }
 
 .navigation {
   width: 100%;
   height: 40px;
   /*background-color: #eee;*/
-  background-color: #456347
+  background-color: #456347;
 }
 
 .navigation ul {

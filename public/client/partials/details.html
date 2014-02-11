@@ -3,28 +3,28 @@
 <div class='container imagedetails' ng-controller='ImageDetailsController'>
 
 <form name="includeImage">
-	Include in New Tour: <input type="checkbox" ng-model='image.checked'>
+	Include in Create New Tour: <input type="checkbox" ng-model='image.checked'>
 
 </form>
 
-<table class="detailtable" border="1">
+<table class="detailtable">
 	<tr>
 		<td>
 		 <img class="detailimg" ng-src="{{ image.src }}"/>
 		</td>
 		<td valign="top">
-			<p>Collection: {{ image.collection }}</p>
-			<p>Description: {{ image.desc }}</p>
-			<p>Cultural Group: {{ image.artist}} {{ image.culture }} <p> 
-			<p>Country of Origin: {{ image.country }}</p>
-			<p>Tags: {{ image.tags }}</p>
+			<p><b>Collection:</b> {{ image.collection }}</p>
+			<p><b>Description:</b> {{ image.desc }}</p>
+			<p><b>Cultural Group:</b> {{ image.artist}} {{ image.culture }} <p> 
+			<p><b>Country of Origin:</b> {{ image.country }}</p>
+			<p><b>Tags:</b> {{ image.tags }}</p>
 
-				<form>
-					Add a Tag: <input type='text' ng-model='tag'/>
-					<button ng-click="addTag(tag, image.src)">Add</button>
-				</form>
+				<!-- <form> -->
+					<button ng-click="addTag(tag, image.src)">Add a Tag</button>
+					<input type='text' ng-model='tag'/>
+				<!-- </form> -->
 
-			<p>Included in the Following Tours:
+			<p><b>Included in the Following Tours:</b>
 				<ul>
 				</ul>
 			</p>

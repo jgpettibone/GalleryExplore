@@ -13,6 +13,10 @@ galleryExploreApp.config(['$routeProvider',
       templateUrl: 'client/partials/details.html',
       controller: 'ImageDetailsController'
     }).
+    when('/tours', {
+      templateUrl: 'client/partials/tours.html',
+      controller: 'TourViewController'
+    }).
     when('/create', {
       templateUrl: 'client/partials/tour.html',
       controller: 'TourCreateController'
@@ -46,6 +50,24 @@ galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $
   $scope.save = function() {
     $location.path('/details');
   }
+
+});
+
+galleryExploreApp.controller('TourViewController', function($scope) {
+
+  $scope.tours = [
+    {tourid: 1, tourname: 'AOA Masterpieces - Three In 30', museum:'deyoung'},
+    {tourid: 2, tourname: 'Oceania - Three In 30', museum:'deyoung'},
+    {tourid: 3, tourname: 'Female Figures, Female Rituals, Female Artists', museum:'deyoung'}
+  ];
+
+//1 - dogon, yipwon, slit drum, stela
+//2 - female cult hook, string bag, yipwon, slit drum, female house post 
+//3 - female cult hook, female giving birth, mourning costume, bilum, female house post, sowei mask, odundo pot, harp, bowstand
+
+  $scope.talkingpts = [
+
+  ];
 
 });
 
