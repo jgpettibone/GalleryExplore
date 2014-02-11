@@ -37,35 +37,9 @@ ActiveRecord::Base.include_root_in_json = false
 # Define associations here if need be
 # http://guides.rubyonrails.org/association_basics.html
 
-# class Link < ActiveRecord::Base
-#     has_many :clicks
+class Image < ActiveRecord::Base
+end
 
-#     validates :url, presence: true
-
-#     before_save do |record|
-#         record.code = Digest::SHA1.hexdigest(url)[0,5]
-#     end
-# end
-
-# class Click < ActiveRecord::Base
-#     belongs_to :link, counter_cache: :visits
-# end
-
-# class User < ActiveRecord::Base
-#   has_secure_password
-
-#   def authenticate(password)
-#     self.password_digest == BCrypt::Engine.hash_secret(password, self.salt)
-#   end
-
-#   validates :username, presence: true, length: { maximum: 50 }, uniqueness: true
-#   validates :password, length: { minimum: 6 }
-#   before_create do |record|
-#     record.salt = BCrypt::Engine.generate_salt
-#     record.password_digest = BCrypt::Engine.hash_secret(record.password, record.salt)
-#     record.token = Digest::SHA1.hexdigest record.to_s
-#   end
-# end
 
 ###########################################################
 # Routes
@@ -74,6 +48,8 @@ ActiveRecord::Base.include_root_in_json = false
 get '/' do
   erb :index
 end
+
+
 
 # get '/links' do
 #     links = Link.order("created_at DESC")

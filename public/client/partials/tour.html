@@ -1,0 +1,32 @@
+<div class='container tourcreate' ng-controller='TourCreateController'>
+
+<!-- 	<div>
+		<form>
+			<input type='search' ng-model='query' autofocus/>
+		</form>
+	</div>
+ -->
+
+
+<div class='tourcreateimages'>
+ <h3>Pieces Saved</h3>
+	<ul class='tourimagelist'>
+		<li ng-repeat='image in tourimages' class='image'>
+			<img ng-src='{{ image.src }}' ng-click='showDetails(image.src)'/>
+			<!-- <img ng-src='{{ image.src }}' ng-click='showDetails($index)'/> -->
+		</ul>
+	</ul>
+
+</div>
+
+<div class='tourcreateform'>
+	<h3>Create Your Tour Here</h3>
+
+
+</div>
+
+</div>
+
+<!-- <div class='container tourcreateform'>
+
+</div> -->

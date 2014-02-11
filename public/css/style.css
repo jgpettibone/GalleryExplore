@@ -38,6 +38,39 @@ h1 {
   width:100%;
 }
 
+.tourcreateimages {
+  border: 5px solid #456347;
+  width:20%;
+  padding: 1em 0 0.08em;
+  position: absolute;
+  left: 4px;
+  float:left;
+}
+
+.tourimagelist li {
+  cursor: pointer;
+  display: inline-block;
+  height: 120px;
+  margin: 8 8px;
+  position: relative;
+  width: 120px;
+  overflow: hidden;
+}
+
+.tourcreateform {
+  border: 5px solid #456347;
+  width:70%;
+  padding: 1em 0 0.08em;
+  position: absolute;
+  right: 4px;
+  float:right;
+ 
+}
+
+.tourimagelist li img {
+  width:100%;
+}
+
 .detailimg {
   /*height: 600px;*/
   /*width: auto;*/
