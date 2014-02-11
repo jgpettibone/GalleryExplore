@@ -132,32 +132,40 @@ galleryExploreApp.service('ImageService', function() {
   }
 })
 
-galleryExploreApp.controller('ImageDetailsController', function($scope, ImageService) {
+galleryExploreApp.controller('ImageDetailsController', function($scope, $http, ImageService) {
 
-  for (var i = 0; i < ImageService.images.length; i++) {
-    // console.log(ImageService.images[i].src);
-    if (ImageService.images[i].src === ImageService.src) {
-      // console.log('found!');
-      $scope.image = ImageService.images[i];
-      break;
-    }
-  }
+  // console.log('ImageService.src', ImageService.src);
 
-  // $scope.watch('forTour', function() {
-  //   console.log('for tour!', $scope.image);    
-  // });
-  // $scope.image = ImageService.images[ImageService.index];
+  $http({
+    method: 'POST',
+    url: '/details',
+    data: {src: ImageService.src}
+  }).then(function(obj){
+    $scope.image = obj.data;
+    // console.log(obj.data);
+  });
 
-  $scope.addTag = function(tag) {
+  $scope.addTag = function(tag, src) {
+    $http({
+      method: 'POST',
+      url: '/tags',
+      data: {src: src, tags: tag}
+    }).then(function(obj){
+      // $scope.image = obj.data;
+      // console.log(obj.data);
+    });
+
+
+
+
+
     if ($scope.image.tags !== undefined) {
       $scope.image.tags += "," + tag;      
     } else {
       $scope.image.tags = tag;    
     }
-    // $scope.save();
   };
 
-//  $location.path('/details');
 
 });
 
@@ -173,21 +181,12 @@ galleryExploreApp.controller('ImageGalleryController', function($scope, $http, $
     url: '/images'
   }).then(function(obj){
     $scope.images = obj.data;
-    // for (var image in $scope.images) {
-    //   console.log(image);
-    // }
-    console.dir(obj);
-  })
+  });
 
-
-
-  // $scope.images = ImageService.images;
 
   $scope.showDetails = function(src) {
     ImageService.src = src;
-    // console.log('done:', ImageService.src, src, index);
     $scope.save();
-    // $location.path('/details');
   };
 
   $scope.save = function() {

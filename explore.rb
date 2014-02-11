@@ -59,7 +59,25 @@ get '/images' do
   # } 
 end
 
+post '/details' do 
+  data = JSON.parse request.body.read
+  # puts data
+  image = Image.find_by_src data['src']  
+  image.to_json
+end
+
+post '/tags' do
+  data = JSON.parse request.body.read
+  image = Image.find_by_src data['src']
+  newTags = "#{image.tags},#{data['tags']}"
+  image.update(tags: newTags)
+end
+
 get '/create' do
+  images = Image.order("id ASC")
+  images.map { |image| 
+    image.as_json
+  }.to_json
 end
 
 get '/details' do 
