@@ -47,16 +47,6 @@ h1 {
   float:left;
 }
 
-.tourimagelist li {
-  cursor: pointer;
-  display: block;
-  height: 120px;
-  margin: 8 8px;
-  position: relative;
-  width: 120px;
-  overflow: hidden;
-}
-
 .tourcreateform {
   border: 5px solid #456347;
   width:70%;
@@ -67,12 +57,51 @@ h1 {
  
 }
 
+.tourimagelist {
+  clear: both;
+  margin: 8px;
+  /*border: 5px solid #456347;*/
+  /*float:left;*/
+}
+
+/*.tourimagelist li {
+  cursor: pointer;
+  display: block;
+  height: 120px;
+  margin: 8 8px;
+  position: relative;
+  width: 120px;
+  overflow: hidden;
+}*/
+
+/*.tournotesbutton {
+  float:right;
+}
+*/
 .tourimagelist img {
   height: auto;
-  margin: 8 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
   width: 150px;
+  float: left;
   overflow: hidden;
+  border: 5px solid #456347;
 }
+
+.tourimageform {
+  width: 300px;
+  /*border: 1px solid red;*/
+  min-height: 365px;
+  float: left;
+}
+
+/*.tournotesbutton {
+  float:left;
+}*/
+
+.tourtitle {
+  display: block;
+  border: 5px solid #456347;
 }
 
 .detailimg {
@@ -85,7 +114,6 @@ h1 {
   width:300px;
   height: auto;
   overflow: hidden;
- 
 }
 
 .onetourtable td {
@@ -93,6 +121,10 @@ h1 {
   border-style: solid;
   border-color: #456347;
   border-width: 5px;
+}
+
+.onetourtable h4 {
+  font-weight: bold;
 }
 
 .detailtable td {

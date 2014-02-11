@@ -9,10 +9,18 @@
 	 		<div ng-repeat='image in tourimages' class='tourimagelist'>
 	 			<img ng-src='{{ image.src }}'/>
 
-	 			<form>
-	 				<input type="text" ng-model="notes"/>
-			 		<button ng-click="submitNotes(notes)">Submit</button><br>	 				
-	 			</form>
+	 			<div class='tourimageform'>
+
+	 				<h4>Title: {{ image.desc }} </h4>
+	 				<button class='removeimagebutton' ng-click="removeImage(image)">Remove Image From Tour</button><br><br>
+
+	 				Enter your notes for this image:
+	 				<textarea rows="10" cols="60" class='notesinput' type="text" ng-model="notes"></textarea>
+
+			 		<button class='tournotesbutton' ng-click="submitNotes(notes)">Submit Notes</button><br><br>
+			 		<!-- <button class='tournotesbutton' ng-click="submitNotes(notes)">Submit Notes</button><br> -->
+
+	 			</div>
 
 	 		</div>
 
