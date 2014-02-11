@@ -7,7 +7,7 @@
 	</div>
 
 	<ul class='imagelist'>
-		<li ng-repeat='image in images track by $index | filter:query' class='image'>
+		<li ng-repeat='image in images | filter:query' class='image'>
 			<img ng-src='{{ image.src }}' ng-click='showDetails(image.src)'/>
 			<!-- <img ng-src='{{ image.src }}' ng-click='showDetails($index)'/> -->
 		</ul>

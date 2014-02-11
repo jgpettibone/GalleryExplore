@@ -54,9 +54,6 @@ get '/images' do
   images.map { |image| 
     image.as_json
   }.to_json
-  # images.each {|image|
-  #   puts image['src']
-  # } 
 end
 
 post '/details' do 
