@@ -72,7 +72,7 @@ ActiveRecord::Base.include_root_in_json = false
 ###########################################################
 
 get '/' do
-    erb :index
+  erb :index
 end
 
 # get '/links' do

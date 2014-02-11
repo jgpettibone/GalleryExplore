@@ -1,0 +1,30 @@
+<div class='container imagedetails' ng-controller='ImageDetailsController'>
+
+
+<table class="detailtable" border="1">
+	<tr>
+		<td>
+		 <img class="detailimg" ng-src="{{ image.src }}"/>
+		</td>
+		<td valign="top">
+			<p>Collection: {{ image.collection }}</p>
+			<p>Description: {{ image.desc }}</p>
+			<p>Artist: {{ image.artist}} {{ image.culture }} <p> 
+			<p>Country of Origin: {{ image.country }}</p>
+			<p>Tags: {{ image.tags }}</p>
+
+				<form>
+					Add a Tag: <input type='text' ng-model='tag'/>
+					<button ng-click="addTag(tag)">Add</button>
+				</form>
+
+			<p>Included in the Following Tours:
+				<ul>
+				</ul>
+			</p>
+		</td>
+		<td>
+			Research Papers:
+		</td>
+	</tr>
+</div>

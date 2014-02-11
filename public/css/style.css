@@ -38,6 +38,19 @@ h1 {
   width:100%;
 }
 
+.detailimg {
+  /*height: 600px;*/
+  /*width: auto;*/
+  max-width:800px;
+  max-height: 600px;
+  /*height:auto;*/
+  /*max-height: 80%;*/
+  overflow: hidden;
+}
+
+.detailtable td {
+  vertical-align: top;
+}
 
 .navigation {
   width: 100%;
@@ -66,11 +79,13 @@ h1 {
 }
 
 .navigation li a:hover {
-  background-color: #ddd;
+  /*background-color: #ddd;*/
+  background-color: #304531;
 }
 
 .navigation li a.selected {
-  background-color: #ccc;
+  /*background-color: #ccc;*/
+  background-color: #304531;
 }
 
 #container {
