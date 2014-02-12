@@ -4,7 +4,9 @@
 	 <h3>Create Your Tour</h3>
 	 		Tour Name <input type="text"  ng-model="tourname" name="tournameform"/>
 	 		<button ng-click="submitName(tourname)">Submit</button><br>
-	 		{{ tourname }}<br><br>
+	 		{{ tourname }} {{ tour.tourname }} <br><br>
+
+	 		{{ message }}
 
 	 		<div ng-repeat='image in tourimages' class='tourimagelist'>
 	 			<img ng-src='{{ image.src }}'/>

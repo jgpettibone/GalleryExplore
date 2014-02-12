@@ -154,12 +154,16 @@ galleryExploreApp.controller('OneTourViewController', function($scope, $location
 galleryExploreApp.controller('TourCreateController', function($scope, $location, $http) {
 
   $scope.tour = {};
+  $scope.message = "";
 
   $http({
     method: 'GET',
     url: '/saved'
   }).then(function(obj){
     $scope.tourimages = obj.data;
+    if ($scope.tourimages.length === 0) {
+      $scope.message = "Explore Images to add images to this tour!";
+    }
   });
 
   $scope.submitName = function(tourname){
@@ -174,7 +178,10 @@ galleryExploreApp.controller('TourCreateController', function($scope, $location,
       data: image
     }).then(function(data){
       $scope.tourimages = data.data;
-    });
+      if ($scope.tourimages.length === 0) {
+        $scope.message = "Explore Images to add images to this tour!";
+    }
+     });
   };
 
 });
