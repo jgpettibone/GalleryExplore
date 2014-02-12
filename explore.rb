@@ -96,6 +96,17 @@ post '/remove' do
   }.to_json
 end
 
+post '/order' do
+  data = JSON.parse request.body.read
+  saved = Saved.find_by_id(data['id'])
+  saved.update(order: data['order'])
+  images = Saved.all 
+  puts "images", images
+  images.map { |image|
+    image.as_json
+  }.to_json
+end
+
 post '/saved' do
   data = JSON.parse request.body.read
   image = Saved.create data

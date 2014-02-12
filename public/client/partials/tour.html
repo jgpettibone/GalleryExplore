@@ -1,14 +1,14 @@
 <div class='container tourcreate' ng-controller='TourCreateController'>
 
 	<div class='tourcreateimages'>
-	 <h3>Create Your Tour</h3>
+	 <h3>Create Your Tour: {{ tour.tourname }}</h3>
 	 		Tour Name <input type="text"  ng-model="tourname" name="tournameform"/>
 	 		<button ng-click="submitName(tourname)">Submit</button><br>
-	 		{{ tourname }} {{ tour.tourname }} <br><br>
+	 		{{ tourname }} <br><br>
 
 	 		{{ message }}
 
-	 		<div ng-repeat='image in tourimages' class='tourimagelist'>
+	 		<div ng-repeat='image in tourimages | orderBy:image.order' class='tourimagelist'>
 	 			<img ng-src='{{ image.src }}'/>
 
 	 			<div class='tourimageform'>
@@ -16,11 +16,17 @@
 	 				<h4>Title: {{ image.desc }} </h4>
 	 				<button class='removeimagebutton' ng-click="removeImage(image)">Remove Image From Tour</button><br><br>
 
-	 				Enter your notes for this image:
+	 				Enter your Talking Points for this image:
 	 				<textarea rows="10" cols="60" class='notesinput' type="text" ng-model="notes"></textarea>
 
 			 		<button class='tournotesbutton' ng-click="submitNotes(notes)">Submit Notes</button><br><br>
 			 		<!-- <button class='tournotesbutton' ng-click="submitNotes(notes)">Submit Notes</button><br> -->
+
+		 			Order = {{ image.order }}
+		 			<input type="number" ng-model="order" min="0" max="15"/>
+		 			<button ng-click="changeOrder(order, image.id)">Change Order</button>
+
+
 
 	 			</div>
 

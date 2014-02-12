@@ -33,14 +33,14 @@ galleryExploreApp.config(['$routeProvider',
 
 galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $window, $location) {
 
-  $scope.research = [
-  {id:5, src:"../images/1980-73.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]},  
-  {id:35, src:"../images/2009-8.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]},
-  {id:58, src:"../images/2001-62-9.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]},
-  {id:64, src:"../images/2007-44-13.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]},
-  {id:65, src:"../images/2007-44-14.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]},
-  {id:86, src:"../images/l05-1-159.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]}
-  ];
+  // $scope.research = [
+  // {id:5, src:"../images/1980-73.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]},  
+  // {id:35, src:"../images/2009-8.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]},
+  // {id:58, src:"../images/2001-62-9.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]},
+  // {id:64, src:"../images/2007-44-13.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]},
+  // {id:65, src:"../images/2007-44-14.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]},
+  // {id:86, src:"../images/l05-1-159.jpg", r:[{name:"Curator's Notes", path:"../research/test_paper.txt"},{name:"Research Paper", path:"../research/test_paper2.txt"}]}
+  // ];
 
   // $scope.research = [
   // {id:5, src:"../images/1980-73.jpg", r:[{name:"Curator's Notes", path:"../research/1980.73.pdf"},{name:"Research Paper", path:"../research/master-drum.pdf"}]},  
@@ -58,12 +58,6 @@ galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $
   })
   .then(function(obj){
     $scope.image = obj.data;
-    for (var i = 0; i < $scope.research.length; i++) {
-      if ($scope.research[i].src === $scope.image.src) {
-        $scope.image.research = $scope.research[i].r;
-        break;
-      }
-    }
   });
 
   $scope.showDoc = function(path){
@@ -180,8 +174,19 @@ galleryExploreApp.controller('TourCreateController', function($scope, $location,
       $scope.tourimages = data.data;
       if ($scope.tourimages.length === 0) {
         $scope.message = "Explore Images to add images to this tour!";
-    }
-     });
+      }
+    });
+  };
+
+  $scope.changeOrder = function(order, id) {
+    // console.log('order =', order);
+    $http({
+      method: 'POST',
+      url: '/order',
+      data: {order: order, id: id}
+    }).then(function(data){
+      $scope.tourimages=data.data;
+    });
   };
 
 });
