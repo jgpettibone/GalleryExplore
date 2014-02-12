@@ -64,7 +64,6 @@ end
 get '/details' do 
   thisimage = Detail.find_by_id(1)
   image = Image.find_by_src thisimage.src
-  # puts image.to_json
   image.to_json
 end
 
@@ -88,10 +87,18 @@ post '/tags' do
   image.to_json
 end
 
+post '/remove' do
+  data = JSON.parse request.body.read
+  Saved.delete data['id'];
+  images = Saved.all
+  images.map {|image|
+    image.as_json
+  }.to_json
+end
+
 post '/saved' do
   data = JSON.parse request.body.read
   image = Saved.create data
-  puts image
 end
 
 get '/saved' do

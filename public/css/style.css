@@ -60,7 +60,7 @@ h1 {
 .tourimagelist {
   clear: both;
   margin: 8px;
-  /*border: 5px solid #456347;*/
+  border: 5px solid #456347;
   /*float:left;*/
 }
 
@@ -100,6 +100,10 @@ h1 {
 }*/
 
 .tourtitle {
+  display: block;
+  border: 1px solid #456347;
+}
+.tourviewlist {
   display: block;
   border: 5px solid #456347;
 }

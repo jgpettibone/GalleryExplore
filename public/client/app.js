@@ -76,7 +76,7 @@ galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $
       url: '/tags',
       data: {src: src, tags: tag}
     }).then(function(data){
-      console.log(data, data.data['tags']);
+      // console.log(data, data.data['tags']);
       $scope.image.tags = data.data['tags'];
     });
   };
@@ -100,8 +100,8 @@ galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $
 galleryExploreApp.controller('TourViewController', function($scope, $window, $location) {
 
   $scope.tours = [
-    {tourid: 1, tourname: 'AOA Masterpieces - Three In 30', museum:'deyoung'},
-    {tourid: 2, tourname: 'Oceania - Three In 30', museum:'deyoung'},
+    {tourid: 1, tourname: 'AOA Masterpieces - Three Pieces In 30 Minutes', museum:'deyoung'},
+    {tourid: 2, tourname: 'Oceania - Three Pieces In 30 Minutes', museum:'deyoung'},
     {tourid: 3, tourname: 'Female Figures, Female Rituals, Female Artists', museum:'deyoung'}
   ];
 
@@ -151,7 +151,7 @@ galleryExploreApp.controller('OneTourViewController', function($scope, $location
 
 });
 
-galleryExploreApp.controller('TourCreateController', function($scope, $http) {
+galleryExploreApp.controller('TourCreateController', function($scope, $location, $http) {
 
   $scope.tour = {};
 
@@ -160,13 +160,22 @@ galleryExploreApp.controller('TourCreateController', function($scope, $http) {
     url: '/saved'
   }).then(function(obj){
     $scope.tourimages = obj.data;
-    console.log($scope.tourimages);
   });
 
   $scope.submitName = function(tourname){
     $scope.tour.tourname = tourname;
     $scope.tourname = '';
   }
+
+  $scope.removeImage = function(image) {
+    $http({
+      method: 'POST',
+      url: '/remove',
+      data: image
+    }).then(function(data){
+      $scope.tourimages = data.data;
+    });
+  };
 
 });
 
