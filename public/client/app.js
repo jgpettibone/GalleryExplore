@@ -189,6 +189,10 @@ galleryExploreApp.controller('TourCreateController', function($scope, $location,
     });
   };
 
+  $scope.getOrder = function(image) {
+    return image.order;
+  };
+
 });
 
 galleryExploreApp.controller('ImageGalleryController', function($scope, $http, $window, $location) {
