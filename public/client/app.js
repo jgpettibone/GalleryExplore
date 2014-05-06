@@ -150,6 +150,7 @@ galleryExploreApp.controller('TourCreateController', function($scope, $location,
   $scope.tour = {};
   $scope.message = "";
 
+
   $http({
     method: 'GET',
     url: '/saved'
