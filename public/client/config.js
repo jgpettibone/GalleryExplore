@@ -1,4 +1,4 @@
-config.jsgalleryExploreApp.config(['$routeProvider',
+galleryExploreApp.config(['$routeProvider',
   function($routeProvider) {
   $routeProvider.
     when('/', {

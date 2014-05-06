@@ -1,2 +1,2 @@
-require "./shortly"
+require "./explore"
 run Sinatra::Application
