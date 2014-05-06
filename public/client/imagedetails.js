@@ -18,7 +18,6 @@ galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $
       url: '/tags',
       data: {src: src, tags: tag}
     }).then(function(data){
-      // console.log(data, data.data['tags']);
       $scope.image.tags = data.data['tags'];
     });
   };
