@@ -2,18 +2,18 @@ body {
   margin: 0;
   margin-top: 10px;
   font-family: arial, sans-serif;
+
 }
 
 a {
-  /*color: #333;*/
   color: #ffffff;
   font-size: 14px;
   text-decoration: none;
 }
 
 h1 {
-  /*font-style: italic;*/
   margin-bottom: 10px;
+  color: #304531;
 }
 
 .imagegallery {
@@ -61,23 +61,8 @@ h1 {
   clear: both;
   margin: 8px;
   border: 5px solid #456347;
-  /*float:left;*/
 }
 
-/*.tourimagelist li {
-  cursor: pointer;
-  display: block;
-  height: 120px;
-  margin: 8 8px;
-  position: relative;
-  width: 120px;
-  overflow: hidden;
-}*/
-
-/*.tournotesbutton {
-  float:right;
-}
-*/
 .tourimagelist img {
   height: auto;
   margin-right: 8px;
@@ -95,17 +80,12 @@ h1 {
   float: left;
 }
 
-/*.tournotesbutton {
-  float:left;
-}*/
-
 .tourtitle {
   display: block;
   border: 1px solid #456347;
 }
+
 .tourviewlist {
-  display: block;
-  border: 5px solid #456347;
 }
 
 .detailimg {
@@ -140,51 +120,27 @@ h1 {
 
 .tourview {
   margin: auto;
-
 }
-
-.tourtitle {
-  text-align: center;
-}
-
 
 .tourmuseum {
   float:right;
 }
 
 .navigation {
-/*  width: 100%;
-  height: 40px;
-*/  /*background-color: #eee;*/
   background-color: #456347;
 }
 
-/*.navigation ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-*/
-/*.navigation li {
-  float: left;
-}
-*/
-/*.navigation li a {
-  width: 120px;
-  height: 20px;
-  line-height: 20px;
-  padding: 10px;
-  display: block;
-  text-align: center;
-}
-*/
 .navigation li a:hover {
-  /*background-color: #ddd;*/
   background-color: #304531;
 }
 
 .navigation li a.selected {
-  /*background-color: #ccc;*/
+  background-color: #304531;
+}
+
+.nav li a:hover,
+.nav li a:focus {
+  text-decoration: none;
   background-color: #304531;
 }
 
