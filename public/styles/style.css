@@ -1,11 +1,15 @@
 body {
-    text-align: center;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    overflow-x: hidden;
-    margin: 24px 30px;
-    background: white;
-    min-height: 100%;
-    min-width: 600px;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  margin: 24px 30px;
+  /*background: #f5f5f5;*/
+  /*background: #304531;*/
+  background-color: #f6f7f8;
+  min-height: 100%;
+  min-width: 600px;
+  /*background-image: url("http://static.kapsul.org/img/4dots.png");*/
+  /*background-image: url('grey.jpg');*/
 }
 
 a {
@@ -14,13 +18,19 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #ffffff !important;  
+}
+
 h1 {
   margin-bottom: 10px;
   color: #304531;
 }
 
-a:hover {
-  color: #ffffff !important;  
+.btn {
+  margin: 5px;
+  /*border-radius: 10px;*/
+
 }
 
 /* Nav Bar */
@@ -54,7 +64,9 @@ a:hover {
 
 /* Image Gallery */
 
-.container {
+.container,
+.tourview,
+.imagedetails {
   /*background: #e7e7e7;*/
   min-width: 600px;
   border-radius: 18px;
@@ -71,8 +83,10 @@ a:hover {
   width:90%;
   padding: 1em 0 0.08em;
   position: absolute;
+  background: white;
   /*left: 4px;*/
   margin: 0;
+  /*margin: 24px 30px;*/
 }
 
 .imagelist li {
@@ -89,9 +103,21 @@ a:hover {
   width:100%;
 }
 
-
 /* Image Details */
 
+.imagedetails {
+  margin: 0;
+}
+
+.detailedimage {
+  width: 40%;
+  display: inline-block;
+}
+
+.detailedinfo {
+  width: 20%px;
+  display: inline-block;
+}
 
 .detailimg {
   max-width: 600px;
@@ -100,10 +126,10 @@ a:hover {
   display: inline-block;
 }
 
-.details {
+/*.details {
   display: inline-block;
 }
-
+*/
 
 /* Tour Creation */
 
@@ -149,36 +175,42 @@ a:hover {
   float: left;
 }
 
-.tourtitle {
-  padding-left: 10px;
-  font-size: 2em;
-  color: #456347;
-  /*display: block;*/
-  /*border: 1px solid #456347;*/
+
+/* Tour View List */
+
+.tourview {
+  margin: auto;
 }
 
 .tourviewlist {
-  margin: 3px 0;
+  background: #456347;
+  margin:0;
+  color: white;
+  width: 90%;
+  /*margin: 3px 0;*/
   min-height: 60px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
-
   border-style: solid;
   border-width: 2px;
   border-color: #E0E0E0;
 }
 
 .tourviewlist:hover{
-  background-color: #ddffee;
+  background-color: #304531;
   cursor: pointer;
 }
 
 .tourtitle{
-  padding-left: 10px;
+  color: #ffffff;
+  /*padding-left: 10px;*/
   font-size: 2em;
-  color: #335533;
+
+  /*display: block;*/
+  /*border: 1px solid #456347;*/
 }
+
 
 
 
@@ -211,9 +243,6 @@ a:hover {
 }
 
 
-.tourview {
-  margin: auto;
-}
 
 .tourmuseum {
   float:right;
