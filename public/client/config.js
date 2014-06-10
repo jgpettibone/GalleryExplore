@@ -1,5 +1,6 @@
-galleryExploreApp.config(['$routeProvider',
-  function($routeProvider) {
+galleryExploreApp.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
+  $locationProvider.html5Mode(true);
   $routeProvider.
     when('/', {
       templateUrl: 'client/partials/gallery.html',
