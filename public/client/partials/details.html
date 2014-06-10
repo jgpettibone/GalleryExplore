@@ -1,46 +1,78 @@
 
-
 <div class='container imagedetails' ng-controller='ImageDetailsController'>
 
-<form name="includeImage">
-	<!-- Include in Create New Tour:  -->
-	<!-- <input type="checkbox" checklist-model='image.checked'> -->
-	<button ng-click="addImage(image)">Include in Create New Tour</button>
+	<form name='includeImage'>
+		<button type="button" class="btn btn-default btn-sm" ng-click='addImage(image)'>Include This Artwork in New Tour</button>
+	</form>
 
-</form>
+	<div class='row'>
 
-<table class="detailtable">
+		<div class='detailedimage'>
+			<div >
+				<img class='detailimg' ng-src='{{ image.src }}'/>
+			</div> 
+		</div>
+
+		<div class='detailedinfo'>
+			<div class='details'>
+				<dl>
+					<dt><em>Collection:</em> {{ image.collection }}</dt>
+					<dt><em>Description:</em> {{ image.desc }}</dt>
+					<dt><em>Cultural Group:</em> {{ image.artist}} {{ image.culture }} </dt>
+					<dt><em>Country of Origin:</em> {{ image.country }}</dt>
+					<dt><em>Tags:</em> {{ image.tags }}</dt>
+				</dl>
+			</div>
+
+			<form>
+				<button type="button" class="btn btn-default btn-sm" ng-click='addTag(tag, image.src)'>Add a Tag
+				</button>
+				<input type='text' ng-model='tag'/>
+			</form>
+
+		</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- <table class='detailtable'>
 	<tr>
 		<td>
-		 <img class="detailimg" ng-src="{{ image.src }}"/>
+		 <img class='detailimg' ng-src='{{ image.src }}'/>
 		</td>
-		<td valign="top">
+		<td valign='top'>
 			<p><b>Collection:</b> {{ image.collection }}</p>
 			<p><b>Description:</b> {{ image.desc }}</p>
 			<p><b>Cultural Group:</b> {{ image.artist}} {{ image.culture }} <p> 
 			<p><b>Country of Origin:</b> {{ image.country }}</p>
 			<p><b>Tags:</b> {{ image.tags }}</p>
-
-				<!-- <form> -->
-					<button ng-click="addTag(tag, image.src)">Add a Tag</button>
-					<input type='text' ng-model='tag'/>
-				<!-- </form> -->
-
-				<br>
+ -->
+<!-- 				<form>
+						<button ng-click='addTag(tag, image.src)'>Add a Tag</button>
+						<input type='text' ng-model='tag'/>
+				</form>
+ -->
+<!-- 				<br>
 			<p><br><b>Included in the Following Tours:</b>
 				<ul>
-					<!-- <li>{{ research }}</li> -->
-				</ul>
+ -->					<!-- <li>{{ research }}</li> -->
+<!-- 				</ul>
 			</p>
 		</td>
 		<td>
 			Research Papers:
 				<ul>
-					<!-- <li ng-repeat="r in image.research" ng-click="showDoc(r.path)"> -->
+ -->					<!-- <li ng-repeat='r in image.research' ng-click='showDoc(r.path)'> -->
 							<!-- {{ r.name }} -->
-					</li>
+<!-- 					</li>
 				</ul>
 		</td>
 	</tr>
 </div>
 
+ -->
