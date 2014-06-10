@@ -3,14 +3,13 @@ galleryExploreApp.controller('TourCreateController', function($scope, $location,
   $scope.tour = {};
   $scope.message = "";
 
-
   $http({
     method: 'GET',
     url: '/saved'
   }).then(function(obj){
     $scope.tourimages = obj.data;
     if ($scope.tourimages.length === 0) {
-      $scope.message = "Explore Images to add images to this tour!";
+      $scope.message = "Use Explore Images to add art to this tour!";
     }
   });
 
