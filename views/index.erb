@@ -1,68 +1,23 @@
 <div ng-app='galleryExploreApp'>
-  <h1>Gallery Explore</h1>
+  <div id='content'>
 
-<div class="navbar navbar-default navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <!-- <a class="navbar-brand" href="#">Brand</a> -->
+  <div class="navbar navbar-default navigation">
+    <div>
+      <ul class="nav navbar-nav navbar-left navigation">
+        <li><a href="#/" class="name">Gallery Explore</a></li>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right navigation">
+        <li><a href="#/" class="index">Explore Images</a></li>
+        <li><a href="#/tours" class="tours">View Tours</a></li>
+        <li><a href="#/create" class="create">Create New Tour</a></li>
+    </div>
   </div>
-  <div class="navbar-collapse collapse navbar-responsive-collapse">
-    <ul class="nav navbar-nav navigation">
-      <li><a href="#/" class="index">Explore Images</a></li>
-      <li><a href="#/tours" class="tours">View Tours</a></li>
-      <li><a href="#/create" class="create">Create New Tour</a></li>
 
-      <!-- <li class="active"><a href="#">Active</a></li> -->
-      <!-- <li><a href="#">Link</a></li> -->
-<!--       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li class="dropdown-header">Dropdown header</li>
-          <li><a href="#">Separated link</a></li>
-          <li><a href="#">One more separated link</a></li>
-        </ul>
-      </li>
-    </ul> -->
-<!--     <form class="navbar-form navbar-left">
-      <input type="text" class="form-control col-lg-8" placeholder="Search">
-    </form>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Link</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </li>
-    </ul> -->
+  <div id='outerContainer'>
+    <div class="container">
+      <div ng-view></div>
+    </div>
   </div>
-</div>
 
-
-
-
-<!--   <div class="navigation">
-    <ul>
-      <li><a href="#/" class="index">Explore Images</a></li>
-      <li><a href="#/tours" class="tours">View Tours</a></li>
-      <li><a href="#/create" class="create">Create New Tour</a></li>
- -->      <!-- <li><a href="#/login" class="login">Login</a></li> -->
-      <!-- <li><a href="#/register" class="register">Register</a></li> -->
-<!--      </ul>
-  </div>
- -->  <div id="container">
-    <div ng-view></div>
-  </div>
 </div>
