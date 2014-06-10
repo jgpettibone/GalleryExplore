@@ -20,6 +20,7 @@ galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $
     }).then(function(data){
       $scope.image.tags = data.data['tags'];
     });
+    $scope.tag = null;
   };
 
   $scope.addImage = function(img) {
