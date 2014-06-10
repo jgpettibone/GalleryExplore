@@ -1,15 +1,17 @@
+
 <div class='container tourview' ng-controller='TourViewController'>
 
-  <input type="search" ng-model='tourquery' placeholder='find a tour'>
+  <div>
+    <form>
+      <input type='search' ng-model='tourquery' placeholder='Find a Tour'/>
+    </form>
+  </div>
 
-  <div class='tourviewlist' ng-repeat='tour in tours | filter:tourquery' ng-click='selectTour(tour)'>
-
-    <p class='tourtitle'>
-      <h3>{{ tour.tourname }}</h3>
-      <!-- <span class='tourmuseum'>{{ tour.museum }}</span> -->
-    </p>
-
+  <div class='container'>
+    <div class='tourviewlist clearfix' ng-repeat='tour in tours | filter:tourquery' 
+    ng-click='selectTour(tour)'>
+      <p class='tourtitle'> {{ tour.tourname }}</p>
+    </div>
   </div>
 
 </div>
-
