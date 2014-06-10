@@ -1,15 +1,8 @@
 <div class='container imagegallery' ng-controller='ImageGalleryController'>
 
-	<div>
-		<form>
-			<input type='search' ng-model='query' placeholder="Find Images"/>
-		</form>
-	</div>
-
 	<ul class='imagelist'>
-		<li ng-repeat='image in images | filter:query' class='image'>
+		<li ng-repeat='image in images | filter:query' class='image thumbnail'>
 			<img ng-src='{{ image.src }}' ng-click='showDetails(image.src)'/>
-			<!-- <img ng-src='{{ image.src }}' ng-click='showDetails($index)'/> -->
 		</ul>
 	</ul>
 
