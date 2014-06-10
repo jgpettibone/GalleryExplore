@@ -1,0 +1,30 @@
+<div class='row'>
+
+  <div class='detailedimage'>
+    <div >
+      <img class='detailimg' ng-src='{{ image.src }}'/>
+    </div> 
+  </div>
+
+  <div class='detailedinfo'>
+
+    <div class='details'>
+      <dl>
+        <dt><em>Collection:</em> {{ image.collection }}</dt>
+        <dt><em>Description:</em> {{ image.desc }}</dt>
+        <dt><em>Cultural Group:</em> {{ image.artist}} {{ image.culture }} </dt>
+        <dt><em>Country of Origin:</em> {{ image.country }}</dt>
+        <dt><em>Tags:</em> {{ image.tags }}</dt>
+      </dl>
+    </div>
+
+    <form>
+      <button type="button" class="btn btn-default btn-sm" ng-click='addTag(tag, image.src)'>Add a Tag
+      </button>
+      <input type='text' ng-model='tag'/>
+    </form>
+
+  </div>
+
+</div>
+
