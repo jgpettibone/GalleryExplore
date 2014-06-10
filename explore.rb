@@ -7,7 +7,7 @@ require 'uri'
 require 'open-uri'
 # require 'bcrypt'
 require 'tux'
-# # require 'nokogiri'
+# require 'nokogiri'
 
 ###########################################################
 # Configuration
@@ -77,12 +77,14 @@ end
 post '/tags' do
   data = JSON.parse request.body.read
   image = Image.find_by_src data['src']
-  puts image.tags
-  if image.tags.empty? then
-    newTags = "#{data['tags']}"
-  else
-    newTags = "#{image.tags},#{data['tags']}"
+  if (data['tags']) then
+    if image.tags.empty? then
+      newTags = "#{data['tags']}"
+    else
+      newTags = "#{image.tags},#{data['tags']}"
+    end
   end
+  newTags = newTags.gsub(/,,/, '').chomp(',')
   image.update(tags: newTags)
   image.to_json
 end
@@ -127,8 +129,7 @@ get '/create' do
 end
 
 
-
 ###########################################################
-# Utility
+# Utility Functions
 ###########################################################
 
