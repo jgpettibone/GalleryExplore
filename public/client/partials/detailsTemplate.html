@@ -19,10 +19,15 @@
     </div>
 
     <form>
-      <button type="button" class="btn btn-default btn-sm" ng-click='addTag(tag, image.src)'>Add a Tag
+      <button type='button' class='btn btn-default btn-sm' ng-click='addTag(tag, image.src)'>Add Tag
       </button>
-      <input type='text' ng-model='tag'/>
+      <input type='text' ng-model='tag' placeholder='Add a Tag That Describes This Object (Optional)'/>
     </form>
+
+    <!-- <textarea rows='10' cols='62' class='notesinput' type='text' ng-model='notes'> -->
+    <textarea rows='10' cols='62' class='notesinput' type='text' ng-model='notes' placeholder='Add Talking Points For This Image'></textarea>
+    <br>
+    <button class='btn btn-default btn-sm tournotesbutton' ng-click='submitNotes(notes)'>Submit Talking Points</button>
 
   </div>
 
