@@ -17,7 +17,24 @@ angular.module('ImageServices', [])
         return $http.get('/details').then(function(obj){
           return obj.data;
         });
+      },
+
+      addTag: function(tag, src) {
+        return $http.post('/tags', {src: src, tags: tag}).then(function(obj){
+          return obj.data;
+        });
+      },
+
+      addTalkingPts: function(notes, src) {
+        return $http.post('/talking', {src: src, talkingpts: notes}).then(function(obj){
+          return obj.data;
+        });
+      },
+
+      addImage: function(img) {
+        return $http.post('/saved', img);
       }
+
 
     }
 
