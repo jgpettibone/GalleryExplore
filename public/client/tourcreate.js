@@ -1,9 +1,9 @@
-galleryExploreApp.controller('TourCreateController', function($scope, $location, $http, ImageService) {
+galleryExploreApp.controller('TourCreateController', function($scope, $location, $http, ImageHTTPService) {
 
   $scope.tour = {};
   $scope.message = "";
 
-  ImageService.getSaveds().then(function(data){
+  ImageHTTPService.getSaveds().then(function(data){
     $scope.tourimages = data;
     $scope.notes = $scope.tourimages.talkingpts;
     checkTourLength($scope.tourimages);
@@ -15,14 +15,14 @@ galleryExploreApp.controller('TourCreateController', function($scope, $location,
   }
 
   $scope.removeImage = function(image) {
-    ImageService.removeImage(image).then(function(data){
+    ImageHTTPService.removeImage(image).then(function(data){
       $scope.tourimages = data;
       checkTourLength($scope.tourimages);
     });
   };
 
   $scope.changeOrder = function(order, id) {
-    ImageService.changeOrder(order, id).then(function(data){
+    ImageHTTPService.changeOrder(order, id).then(function(data){
       $scope.tourimages = data;
     });
   };

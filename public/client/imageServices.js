@@ -1,5 +1,5 @@
 angular.module('ImageServices', [])
-  .service('ImageService', function ($http){
+  .service('ImageHTTPService', function ($http){
 
     return {
 

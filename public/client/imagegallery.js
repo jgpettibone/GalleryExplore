@@ -1,11 +1,11 @@
-galleryExploreApp.controller('ImageGalleryController', function($scope, $http, $window, $location, ImageService) {
+galleryExploreApp.controller('ImageGalleryController', function($scope, $http, $window, $location, ImageHTTPService) {
 
-  ImageService.getImages().then(function(data){
+  ImageHTTPService.getImages().then(function(data){
     $scope.images = data;
   });
 
   $scope.showDetails = function(src) {
-    ImageService.showDetails(src);
+    ImageHTTPService.showDetails(src);
     $location.path('/details').replace;
   };
 
