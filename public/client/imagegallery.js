@@ -1,19 +1,12 @@
-galleryExploreApp.controller('ImageGalleryController', function($scope, $http, $window, $location) {
+galleryExploreApp.controller('ImageGalleryController', function($scope, $http, $window, $location, ImageService) {
 
-  $http({
-    method: 'GET',
-    url: '/images'
-  }).then(function(obj){
-    $scope.images = obj.data;
+  ImageService.getImages().then(function(data){
+    $scope.images = data;
   });
 
   $scope.showDetails = function(src) {
-    $http({
-      method: 'POST',
-      url: '/detailimage',
-      data: {src: src}
-    });
-    $scope.save();
+    ImageService.showDetails(src);
+    $scope.save();    
   };
 
   $scope.save = function() {
