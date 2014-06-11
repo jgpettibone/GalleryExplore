@@ -1,39 +1,27 @@
-galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $window, $location) {
+galleryExploreApp.controller('ImageDetailsController', function($scope, $http, $window, $location, ImageService) {
 
-  $http({
-    method: 'GET',
-    url: '/details'
-  })
-  .then(function(obj){
-    $scope.image = obj.data;
+  ImageService.getDetails().then(function(data){
+    $scope.image = data;
+    $scope.notes = $scope.image.talkingpts;
   });
 
-  $scope.showDoc = function(path){
-    $window.open(path);
-  };
-
   $scope.addTag = function(tag, src) {
-    $http({
-      method: 'POST',
-      url: '/tags',
-      data: {src: src, tags: tag}
-    }).then(function(data){
-      $scope.image.tags = data.data['tags'];
+    ImageService.addTag(tag, src).then(function(data){
+      $scope.image.tags = data['tags'];
     });
     $scope.tag = null;
   };
 
-  $scope.addImage = function(img) {
-    $http({
-      method: 'POST',
-      url: '/saved',
-      data: img
+  $scope.addTalkingPts = function(notes, src) {
+    ImageService.addTalkingPts(notes, src).then(function(data){
+      $scope.image.talkingpts = data['talkingpts'];
+      $scope.notes = data['talkingpts'];
     });
   };
 
-  $scope.save = function() {
-    $location.path("http://www.google.com");
-  }
+  $scope.addImage = function(img) {
+    ImageService.addImage(img);
+  };
 
 });
 
