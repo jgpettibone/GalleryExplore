@@ -128,6 +128,16 @@ get '/create' do
   }.to_json
 end
 
+post '/talking' do
+  data = JSON.parse request.body.read
+  image = Image.find_by_src data['src']
+  if (data['talkingpts']) then
+    newTalkingPts = "#{data['talkingpts']}"
+  end
+  image.update(talkingpts: newTalkingPts)
+  image.to_json
+end
+
 
 ###########################################################
 # Utility Functions
