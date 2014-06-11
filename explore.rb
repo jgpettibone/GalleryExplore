@@ -44,6 +44,15 @@ class Detail < ActiveRecord::Base
 end
 
 class Saved < ActiveRecord::Base
+  has_many :images
+  # attr_accessor :order
+
+  # before_save :default_order
+
+  # def default_order
+  #   self.order ||= self.count(:order) + 1
+  # end
+
 end
 
 ###########################################################
@@ -91,19 +100,21 @@ end
 
 post '/remove' do
   data = JSON.parse request.body.read
-  Saved.delete data['id'];
+  record = Saved.find_by_image_id data['id']
+  Saved.delete record['id']
   images = Saved.all
-  images.map {|image|
-    image.as_json
+  images.map {|saved|
+    newOrder = saved.order - 1
+    saved.update(order: newOrder)
+    image = Image.find_by_id saved['image_id'].as_json
   }.to_json
 end
 
 post '/order' do
   data = JSON.parse request.body.read
-  saved = Saved.find_by_id(data['id'])
+  saved = Saved.find_by_id data['id']
   saved.update(order: data['order'])
   images = Saved.all 
-  puts "images", images
   images.map { |image|
     image.as_json
   }.to_json
@@ -111,13 +122,16 @@ end
 
 post '/saved' do
   data = JSON.parse request.body.read
-  image = Saved.create data
+  image = Saved.create(:image_id => data['id'])
+  count = Saved.count
+  image.update(order: count)
+  image.to_json
 end
 
 get '/saved' do
-  images = Saved.all 
-  images.map { |image| 
-    image.as_json
+  images = Saved.all
+  images.map { |saved| 
+    image = Image.find_by_id saved['image_id'].as_json 
   }.to_json
 end
 
@@ -131,12 +145,11 @@ end
 post '/talking' do
   data = JSON.parse request.body.read
   image = Image.find_by_src data['src']
-  if (data['talkingpts']) then
-    newTalkingPts = "#{data['talkingpts']}"
-  end
+  newTalkingPts = "#{data['talkingpts']}"
   image.update(talkingpts: newTalkingPts)
   image.to_json
 end
+
 
 
 ###########################################################
