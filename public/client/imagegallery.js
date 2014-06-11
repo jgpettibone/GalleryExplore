@@ -6,12 +6,8 @@ galleryExploreApp.controller('ImageGalleryController', function($scope, $http, $
 
   $scope.showDetails = function(src) {
     ImageService.showDetails(src);
-    $scope.save();    
+    $location.path('/details').replace;
   };
-
-  $scope.save = function() {
-    $window.open('/#/details');
-  }
 
 });
 
