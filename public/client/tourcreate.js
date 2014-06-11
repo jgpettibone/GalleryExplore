@@ -1,16 +1,12 @@
-galleryExploreApp.controller('TourCreateController', function($scope, $location, $http) {
+galleryExploreApp.controller('TourCreateController', function($scope, $location, $http, ImageService) {
 
   $scope.tour = {};
   $scope.message = "";
 
-  $http({
-    method: 'GET',
-    url: '/saved'
-  }).then(function(obj){
-    $scope.tourimages = obj.data;
-    if ($scope.tourimages.length === 0) {
-      $scope.message = "Use Explore Images to add art to this tour!";
-    }
+  ImageService.getSaveds().then(function(data){
+    $scope.tourimages = data;
+    $scope.notes = $scope.tourimages.talkingpts;
+    checkTourLength($scope.tourimages);
   });
 
   $scope.submitName = function(tourname){
@@ -19,30 +15,25 @@ galleryExploreApp.controller('TourCreateController', function($scope, $location,
   }
 
   $scope.removeImage = function(image) {
-    $http({
-      method: 'POST',
-      url: '/remove',
-      data: image
-    }).then(function(data){
-      $scope.tourimages = data.data;
-      if ($scope.tourimages.length === 0) {
-        $scope.message = "Explore Images to add images to this tour!";
-      }
+    ImageService.removeImage(image).then(function(data){
+      $scope.tourimages = data;
+      checkTourLength($scope.tourimages);
     });
   };
 
   $scope.changeOrder = function(order, id) {
-    $http({
-      method: 'POST',
-      url: '/order',
-      data: {order: order, id: id}
-    }).then(function(data){
-      $scope.tourimages=data.data;
+    ImageService.changeOrder(order, id).then(function(data){
+      $scope.tourimages = data;
     });
   };
 
   $scope.getOrder = function(image) {
     return image.order;
+  };
+
+  var checkTourLength = function(tour) {
+    if (tour.length === 0)
+      $scope.message = 'Use Explore Images to add art to the tour.';
   };
 
 });
