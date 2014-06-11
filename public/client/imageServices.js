@@ -33,8 +33,25 @@ angular.module('ImageServices', [])
 
       addImage: function(img) {
         return $http.post('/saved', img);
-      }
+      }, 
 
+      getSaveds: function() {
+        return $http.get('/saved').then(function(obj){
+          return obj.data;
+        })
+      },
+
+      removeImage: function(image) {
+        return $http.post('/remove', image).then(function(obj){
+          return obj.data;
+        })
+      },
+
+      changeOrder: function(order, id) {
+        return $http.post('/order', {order: order, id: id}).then(function(obj){
+          return obj.data;
+        })
+      }
 
     }
 
