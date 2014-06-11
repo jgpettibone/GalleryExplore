@@ -1,3 +1,4 @@
 var galleryExploreApp = angular.module('galleryExploreApp', [
-  'ngRoute'
+  'ngRoute',
+  'ImageServices'
 ]);
