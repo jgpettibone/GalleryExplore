@@ -40,8 +40,8 @@ imageServices.service('ImageHTTPService', function ($http){
       })
     },
 
-    getTourImages: function(tourname) {
-      return $http.post('/alltourimages', tourname).then(function(obj){
+    getTourImages: function(tourid) {
+      return $http.post('/alltourimages', {tour_id: tourid}).then(function(obj){
         return obj.data;
       })
     },
