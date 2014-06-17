@@ -54,7 +54,13 @@ Defines the routes for the partial pages and their controllers.
 ##### The Services
 
 *public/client/imageServices.js*
-The ImageServices include all http services, thus ensuring that model data is not created inside the controller and separating the model and the controller.
+This defines the imageServices module.  There are two services in this module: imageHTTPService and tourService.
+
+*public/client/imageHTTPService.js*
+The ImageServices include all http services.  We don't want these in the controllers because the model (and the creation of the model data) should be separate from the controller. 
+
+*public/client/tourService.js*
+This service includes data to be shared across controllers.  
 
 ##### The Directive
 
