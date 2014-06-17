@@ -1,15 +1,25 @@
 ## Gallery Explore
-Gallery Explore is a tool that allows docents to explore the artwork in their museum.  Docents need to do a lot of research in order to create visitor tours and many docents store information about the art and the tours they've created in files and folders.  However, every great tour starts from actually seeing the art.  Gallery Explores stores all information about the artwork and the tours from the perspective of images in an image gallery.
+Gallery Explore is a visual database for artwork in a museum.  This tool facilitates the research that docents need to do when planning a visitor tour by giving them a way to explore the artwork through images of the pieces in the museum and to create and store information about tours in the application.  
 
 This tool is separated into three main sections:
 
 ### Explore Images
+This is an image gallery containing images of the artwork in the museum.  The images are filterable on a number of different criteria including:
 
+* title and/or description
+* artist and/or cultural group
+* country of origin
+* collection in the museum
+* any number of user-defined tags
+
+Docents will be able to easily find art that fits into a particular theme.  Clicking on an individual image will take the docent to a page with a larger image and all the relevant details.  This detailed page also gives docents the opportunity to input more information about the piece - both new user-defined tags as well as notes or talking points that the docent can use during the tour.  From this screen the user can also designate this artwork to be included in a new tour.
 
 ### View Tours
+This section shows a list of all the tours saved in the application.  By clicking on the title of one of the tours, the docent will see all of the relevant images and information associated with that tour.
 
 
 ### Create New Tour
+This is the new tour editor.  When a docent chooses to add artwork to a new tour from Explore Images's details page, this page will be populated with that information.    
 
 
 ## Tech Stack
