@@ -128,9 +128,8 @@ h1 {
 }
 
 .detailimg {
-  max-width: 600px;
+  max-width: 500px;
   max-height: 450px;
-  /*overflow: hidden;*/
   display: inline-block;
 }
 
