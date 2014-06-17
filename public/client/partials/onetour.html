@@ -1,86 +1,15 @@
 <div class='container onetourview' ng-controller='OneTourViewController'>
 
-<h3>Oceania - Three Pieces in 30 Minutes</h3>
-<table class='onetourtable'>
+  <div class='tourcreateimages' ng-init='orderBy=image.order; reverse=true'>
+   <h3>This Tour: {{ tourname }}</h3>
 
-	<tr>
-		<td>
-			<img class='onetourimg' src="../images/l05-1-67.jpg"/>
-		</td>
-		<td>
-			<h4>Title: Female Suspension Hook</h4>
-			<h4>Talking Points</h4>
-			<!-- <ul> -->
-				<p>Suspension hooks: function and ceremony</p>
-				<p>Visual elements: face, hair, crocodile skin, articulated spine</p>
-				<p>The Kaningara and the mother-crocodile</p>
-			<!-- </ul> -->
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<img class='onetourimg' src="../images/2007-44-79.jpg"/>			
-		</td>
-		<td>
-			<h4>Title: String Bag, Bilum </h4>
-			<h4>Transition Piece </h4>
-			<!-- <ul> -->
-				<p>String bags hang from suspension hooks</p>
-				<p>Function and Ceremony</p>
-			<!-- </ul> -->
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<img class='onetourimg' src="../images/2000-172-1.jpg"/>			
-		</td>
-		<td>
-			<h4>Title: Yipwon</h4>
-			<h4>Talking Points</h4>
-			<!-- <ul> -->
-				<p>Yimam Creation Story and Hunting Spirit</p>
-				<p>Men's Ceremonial Houses</p>
-				<p>Tie to Surrealist Movement</p>
-			<!-- </ul> -->
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<img class='onetourimg' src="../images/2001-62-9.jpg"/>			
-		</td>
-		<td>
-			<h4>Title: Hunting Spirit, Yipwon</h4>
-			<h4>Transition Piece </h4>
-			<!-- <ul> -->
-				<p>First Yipwon made from a slit drum</p>
-				<p>Ceremonial uses of slit drum</p>
-			<!-- </ul> -->
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<img class='onetourimg' src="../images/l05-1-19.jpg"/>			
-		</td>
-		<td>
-			<h4>Title: Female House Post</h4>
-			<h4>Talking Points</h4>
-			<!-- <ul> -->
-				<p>Figure Hidden in Lake Sentani</p>
-				<p>Visual aspect: expression, body, stance  </p>
-				<p>Called "The Hunchback" by its first collectors - a tropical tumor?</p>
-				<p>Tie to Surrealist Movement</p>
-			<!-- </ul> -->
-		</td>
-	</tr>
+      <div ng-repeat='image in tourimages | orderBy:getOrder' class='tourimagelist'>
+        <input type='number' ng-model='order' min='0' max='15' placeholder='{{ image.order }}'/>
+        <button class='btn btn-default btn-sm' ng-click='changeOrder(order, image.id)'>Change Order</button>
+        <button class='btn btn-default btn-sm removeimagebutton' ng-click='removeImage(image)'>Remove This Image From Tour</button>
+        <image-details></image-details>
+      </div>
 
-	<tr>
-		<td>
-		</td>
-		<td>
-		</td>
-	</tr>
-
-</table>
-
-
+  </div>
 </div>
+
