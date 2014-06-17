@@ -1,10 +1,12 @@
 <div class='container tourcreate' ng-controller='TourCreateController'>
 
 	<div class='tourcreateimages' ng-init='orderBy=image.order; reverse=true'>
-	 <h3>Create Your Tour: {{ tourname }}</h3>
+	 <h3>Edit This Tour: {{ tourname }}</h3>
 	 		<input type='text'  ng-model='tourname' name='tournameform' placeholder='Name Your New Tour'/>
-	 		<button class='btn btn-default btn-sm' ng-click='submitName(tourname)'>Submit</button><br>
 	 		<br>
+	 		<button class='btn btn-default btn-sm' ng-click='saveTour(tourname)'>Save This Tour</button>
+	 		<button class='btn btn-default btn-sm' ng-click='findArt()'>Find More Artwork</button>
+	 		<br><br>
 
 	 		<span>{{ message }}</span>
 
