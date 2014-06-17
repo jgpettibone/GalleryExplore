@@ -22,7 +22,6 @@ h1 {
 
 .btn {
   margin: 5px;
-  /*border-radius: 10px;*/
 }
 
 /* Nav Bar */
@@ -74,7 +73,8 @@ h1 {
 .container,
 .tourview,
 .imagedetails,
-.tourcreate {
+.tourcreate,
+.onetourview {
   min-width: 600px;
   border-radius: 18px;
   -moz-border-radius: 18px;
@@ -86,7 +86,8 @@ h1 {
 
 .imagegallery,
 .imagedetails,
-.tourcreate {
+.tourcreate,
+.onetourview {
   border: 5px solid #456347;
   width:90%;
   padding: 1em 0 0.08em;
@@ -143,15 +144,6 @@ h1 {
   border-radius: 10px;
 }
 
-/*.tourimageform {
-  width: 300px;
-  border: 1px solid red;
-  min-height: 365px;
-  float: left;
-}
-
-*/
-
 /* Tour View List */
 
 .tourview {
@@ -182,15 +174,6 @@ h1 {
   font-size: 2em;
 }
 
-
-
-/*
-.onetourimg {
-  width:300px;
-  height: auto;
-  overflow: hidden;
-}
-*/
 
 #container {
   clear: both;
