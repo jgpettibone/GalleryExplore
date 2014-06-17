@@ -10,23 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212001606) do
+ActiveRecord::Schema.define(version: 20140617065728) do
 
   create_table "details", force: true do |t|
     t.string "src"
   end
 
   create_table "images", force: true do |t|
-    t.string "src"
-    t.string "collection"
-    t.string "museum"
-    t.string "desc"
-    t.string "culture"
-    t.string "country"
-    t.string "tags"
-  end
-
-  create_table "saveds", force: true do |t|
     t.string  "src"
     t.string  "collection"
     t.string  "museum"
@@ -34,7 +24,23 @@ ActiveRecord::Schema.define(version: 20140212001606) do
     t.string  "culture"
     t.string  "country"
     t.string  "tags"
-    t.integer "order",      default: 0
+    t.text    "talkingpts", limit: 255
+    t.integer "order",                  default: 0
+  end
+
+  create_table "saveds", force: true do |t|
+    t.integer "order",    default: 0
+    t.integer "image_id"
+  end
+
+  create_table "tourimages", force: true do |t|
+    t.integer "tour_id"
+    t.integer "image_id"
+    t.integer "order"
+  end
+
+  create_table "tours", force: true do |t|
+    t.string "tourname"
   end
 
 end
