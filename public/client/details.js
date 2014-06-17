@@ -1,6 +1,6 @@
 galleryExploreApp.directive("imageDetails", function() {
   return {
     restrict: 'E',
-    templateUrl: 'client/partials/detailsTemplate.html' 
+    templateUrl: 'client/partials/detailsTemplate.html'
   }
 });
