@@ -19,14 +19,14 @@ angular.module('ImageServices', [])
         });
       },
 
-      addTag: function(tag, src) {
-        return $http.post('/tags', {src: src, tags: tag}).then(function(obj){
+      addTag: function(tag, id) {
+        return $http.post('/tags', {id: id, tags: tag}).then(function(obj){
           return obj.data;
         });
       },
 
-      addTalkingPts: function(notes, src) {
-        return $http.post('/talking', {src: src, talkingpts: notes}).then(function(obj){
+      addTalkingPts: function(notes, id) {
+        return $http.post('/talking', {id: id, talkingpts: notes}).then(function(obj){
           return obj.data;
         });
       },
