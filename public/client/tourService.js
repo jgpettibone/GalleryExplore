@@ -1,15 +1,23 @@
 imageServices.service('TourService', function(){
 
-  var tourname;
+  var _tour;
 
   return {
 
-    setTourname: function(name) {
-      tourname = name;
+    getTourname: function() {
+      return _tour.tourname;
     },
 
-    getTourname: function() {
-      return tourname;
+    getTourID: function() {
+      return _tour.id;
+    },
+
+    setTour: function(tour) {
+      _tour = tour;
+    },
+
+    getTour: function() {
+      return _tour;
     }
 
   }
