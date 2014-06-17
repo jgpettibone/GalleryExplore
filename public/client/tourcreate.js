@@ -4,6 +4,7 @@ galleryExploreApp.controller('TourCreateController', function($scope, $location,
   $scope.message = '';
   $scope.notes = {};
   $scope.tourimages;
+  $scope.tourname;
 
   ImageHTTPService.getSaveds().then(function(data){
     $scope.tourimages = data;
@@ -12,12 +13,21 @@ galleryExploreApp.controller('TourCreateController', function($scope, $location,
   });
 
   $scope.saveTour = function(tourname){
-    console.log('tourname = ', $scope.tourname);
+    var tourimages = $scope.tourimages;
     if (!$scope.tourname) { 
       $scope.message = 'This tour needs a name before it can be saved';
     }
+    else if (tourimages.length === 0) {
+      $scope.message = 'This tour needs artwork before it can be saved';
+    }
     else {
       $scope.message = '';
+      ImageHTTPService.saveTourName($scope.tourname).then(function(data){
+        var tourid = data['id'];
+        for (var i = 0; i < tourimages.length; i++) {
+          ImageHTTPService.saveTourImage(tourid, tourimages[i].id, tourimages[i].order);
+        }      
+      });
     }
   };
 
