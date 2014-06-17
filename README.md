@@ -22,6 +22,11 @@ This section shows a list of all the tours saved in the application.  By clickin
 This is the new tour editor.  When a docent chooses to add artwork to a new tour from Explore Images's details page, this page will be populated with that information.    
 
 
+## Gallery Explore Status
+The work in this repo is a prototype represented about 40 hours of work.  It was created for discussion with the Docent Council of the Fine Arts Museums of San Francisco (FAMSF).  Note that the images are currently stored in the database only as local paths so as to protect the property of FAMSF.  The database associated with this repo is also not fully populated for this reason.
+
+I continue to work on this project when I have time.
+
 ## Tech Stack
 Gallery Explore is built with a SQLite database, Ruby/Sinatra on the back end and JavaScript/Angular on the front end.
 
@@ -41,34 +46,40 @@ Scripts and partials can be found in public/client.
 ##### The App Module and Config Files
 
 *public/client/app.js*
+Defines the application module.
 
 *public/client/config.js*
+Defines the routes for the partial pages and their controllers.
+
+##### The Services
+
+*public/client/imageServices.js*
+The ImageServices include all http services, thus ensuring that model data is not created inside the controller and separating the model and the controller.
+
+##### The Directive
+
+*public/client/details.js* and *public/client/partials/detailsTemplate.html*
+The directive here is used to show an image of artwork along with its relevant information.  This directive is used once within the details page and multiple times with an ng-repeat in the Create New Tour and in the single tour view pages.
 
 ##### The Controllers and Partials
 
 *public/client/imagegallery.js* and *public/client/partials/gallery.html*
-
+These control the image gallery found on the Explore Images page.
 
 *public/client/imagedetails.js* and *public/client/partials/details.html*
-
+These control the details of an artwork shown when an image is clicked on the Explore Image page.
 
 *public/client/tourcreate.js* and *public/client/partials/tour.html*
-
+These control the Create New Tour page.
 
 *public/client/tourview.js* and *public/client/partials/tours.html*
-
+These control the View Tours page. 
 
 *public/client/onetourview.js* and *public/client/partials/onetour.html*
-
-
-##### The Directives
-
-*public/client/details.js* and *public/client/partials/detailsTemplate.html*
-
+These control the single tour view when one of the tours is clicked from the View Tours page.
 
 ### Compatibility
 Note that Gallery Explore was written and tested for use on Chrome 5 or later.  Please use Gallery Explore with Chrome.
-
 
 ## Getting Started
 
